@@ -64,7 +64,7 @@ filterPokemon = () => {
         <br />
         <PokemonForm renderNewPokemon={this.renderNewPokemon}/>
         <br />
-        <Search onChange={(e) => this.changeFilterTerm(e.target.value)} filterTerm={this.state.filterTerm} />
+        <Search onChange={(e) => this.changeFilterTerm(e.target.value)} filterTerm={this.state.filterTerm}  />
         <br />
         <PokemonCollection pokemonData={this.filterPokemon()} pokemonFlipHandler={this.pokemonFlipHandler}/>
       </Container>
