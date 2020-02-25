@@ -31,6 +31,7 @@ class PokemonCard extends React.Component {
     return (
       <Card>
         <div onClick={(e) => this.flipHandler()}>
+        {this.state.isFlipped ? <p>Back</p> : <p>Front</p>  }
           <div className="image">
             <img src={this.state.isFlipped ? back : front} onError={this.addDefaultsrc} alt="oh no!" />
           </div>

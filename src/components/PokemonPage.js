@@ -38,7 +38,12 @@ filterPokemon = () => {
   }
 
   renderNewPokemon = (pokemon) => {
-    
+    console.log(pokemon)
+    let newArray = [...this.state.pokemonData, pokemon]
+
+    this.setState({ pokemonData: newArray })
+    // return newArray
+    // let poketoadd = 
     // this.setState({
       
     //   pokemonData: [...pokemonData]
