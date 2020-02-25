@@ -11,8 +11,7 @@ class PokemonPage extends React.Component {
   
     this.state = {
       pokemonData: [],
-      searchForm: "",
-      filteredPokes: []
+      filterTerm: ""
     }
   }
 
@@ -20,24 +19,17 @@ pokemonFlipHandler(){
   console.log('hello')
 }
 
-handleSearch = (e) => {
-  let filteredPokes = this.state.pokemonData
-  filteredPokes = filteredPokes.filter((pokemon) => {
-    let pokemonName = pokemon.name.toLowerCase()
-    console.log(pokemonName)
-    return pokemonName.indexOf(
-      e.target.value.toLowerCase()) !== -1
-  })
-  this.setState({
-    filteredPokes
-  })
-// console.log(e.target.value)
-// this.setState({searchForm: [e.target.value]})
-
-
+changeFilterTerm = (e) => {
+  this.setState({filterTerm: e})
 }
 
-  
+filterPokemon = () => {
+  let {pokemonData, filterTerm} = this.state
+  let filteredPokemonArray = pokemonData.filter(pokemon => {
+    return pokemon.name.toLowerCase().includes(filterTerm)
+  })
+  return filteredPokemonArray
+}
 
   componentDidMount(){
     fetch(`http://localhost:3000/pokemon`)
@@ -45,20 +37,31 @@ handleSearch = (e) => {
     .then(pokemons => this.setState({pokemonData: pokemons, filteredPokes: pokemons}))
   }
 
+  renderNewPokemon = (pokemon) => {
+    
+    // this.setState({
+      
+    //   pokemonData: [...pokemonData]
+    // })
+    
+  }
+
+  
+  // this.setState({[e.target.name]: e.target.value })
 
 
 
   render() {
-    console.log(this.state.pokemonData)
+
     return (
       <Container>
         <h1>Pokemon Searcher</h1>
         <br />
-        <PokemonForm />
+        <PokemonForm renderNewPokemon={this.renderNewPokemon}/>
         <br />
-        <Search onChange={this.handleSearch} />
+        <Search onChange={(e) => this.changeFilterTerm(e.target.value)} filterTerm={this.state.filterTerm} />
         <br />
-        <PokemonCollection pokemonData={this.state.pokemonData} pokemonFlipHandler={this.pokemonFlipHandler}/>
+        <PokemonCollection pokemonData={this.filterPokemon()} pokemonFlipHandler={this.pokemonFlipHandler}/>
       </Container>
     )
   }
