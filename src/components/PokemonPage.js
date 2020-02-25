@@ -33,6 +33,7 @@ class PokemonPage extends React.Component {
 
   // handles controlling the search field and setting the correct filtered pokemon to display
   handleSearch = (e) => {
+    console.log(e.target.value)
     let filteredPokemon = this.state.allPokemon.filter( pokemon => pokemon.name.includes(e.target.value.toLowerCase()) )
     this.setState({
       searchTerm: e.target.value,

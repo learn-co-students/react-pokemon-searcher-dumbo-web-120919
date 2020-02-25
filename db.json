@@ -7340,6 +7340,34 @@
         "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png"
       },
       "id": 207
+    },
+    {
+      "name": "magby",
+      "stats": [
+        {
+          "value": "55",
+          "name": "hp"
+        }
+      ],
+      "sprites": {
+        "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/240.png",
+        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/240.png"
+      },
+      "id": 208
+    },
+    {
+      "name": "bulbasaur",
+      "stats": [
+        {
+          "value": "45",
+          "name": "hp"
+        }
+      ],
+      "sprites": {
+        "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/240.png"
+      },
+      "id": 209
     }
   ]
 }
